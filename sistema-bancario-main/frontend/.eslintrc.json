@@ -4,16 +4,20 @@
       "plugin:tailwindcss/recommended"
     ],
     "rules": {
-      // Regra recomendada: desativa a regra que procura classes não declaradas em CSS/SCSS,
-      // que é o que causa os falsos positivos com as classes Tailwind.
-      // Esta regra é do 'eslint-plugin-css-modules', que é usado pelo CRA.
-      "css-modules/no-unused-class": "off"
+      // Regras para compatibilidade com React 19 (JSX Transform)
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+
+      // Desativa a regra de classes não utilizadas (falsos positivos do Tailwind)
+      "css-modules/no-unused-class": "off",
+
+      // Desativa a regra que gera avisos de "classe desconhecida" no linter
+      "tailwindcss/no-custom-classname": "off" 
     },
     "settings": {
       "tailwindcss": {
-        "callees": ["classnames", "clsx", "ctl"],
-        // Se você não tem um arquivo tailwind.config.js na pasta `frontend/`, esta linha não precisa de ser configurada.
-        "config": "./tailwind.config.js" 
+        "callees": ["classnames", "clsx", "ctl"]
+        // Removemos a configuração para usar o modo de descoberta automática do linter
       }
     }
-  }
+}

@@ -6,27 +6,30 @@ import Transactions from "./pages/Transactions";
 function App() {
   return (
     <BrowserRouter>
-      {/* Container Principal: Define a altura mínima da tela */}
-      <div className="min-h-screen bg-gray-50 p-4"> 
+      {/* Container Principal: Fundo cinza CLARO para dar contraste com o "cartão" branco */}
+      <div className="min-h-screen bg-gray-100 p-6"> 
         
-        {/* Navigation Bar: Centralizado com mx-auto */}
-        <nav className="bg-white shadow-md p-4 mb-8 rounded-lg flex justify-between items-center max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold text-indigo-700">Banking System</h1>
+        {/* Navigation Bar: Barra de navegação com cor primária e sombra pronunciada */}
+        <nav className="bg-indigo-600 shadow-xl p-4 mb-10 rounded-xl flex justify-between items-center max-w-5xl mx-auto">
+          {/* Título: Cor branca para contraste e melhor fonte */}
+          <h1 className="text-3xl font-extrabold text-white">
+            <Link to="/" className="hover:text-indigo-200">Banking System</Link>
+          </h1>
           
-          {/* Links Lado a Lado */}
-          <div className="flex space-x-4">
-            <Link to="/" className="text-indigo-600 hover:text-indigo-800 font-medium">
-              Menu
+          {/* Links com foco em branco e transição */}
+          <div className="flex space-x-6">
+            <Link to="/" className="text-white hover:text-indigo-200 font-semibold transition duration-150 ease-in-out">
+              Open Account
             </Link>
 
-            <Link to="/accounts" className="text-indigo-600 hover:text-indigo-800 font-medium">
-              Existing Accounts
+            <Link to="/accounts" className="text-white hover:text-indigo-200 font-semibold transition duration-150 ease-in-out">
+              Accounts List
             </Link>
           </div>
         </nav>
 
-        {/* Content Area: Centralizado com mx-auto e com margem do topo para não ficar colado */}
-        <div className="max-w-4xl mx-auto bg-white p-6 shadow-xl rounded-lg">
+        {/* Content Area: O "cartão" principal que hospeda as rotas. Ele fica no centro. */}
+        <div className="max-w-5xl mx-auto bg-white p-8 border border-gray-200 shadow-2xl rounded-xl">
           <Routes>
             <Route path="/" element={<AccountForm />} />
             <Route path="/accounts" element={<Accounts />} />
