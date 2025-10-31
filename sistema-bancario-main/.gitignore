@@ -1,0 +1,15 @@
+# Ignorar pastas de build do .NET
+/bin/
+/obj/
+
+# Ignorar caches e arquivos temporários
+*.cache
+*.log
+*.tmp
+
+# Ignorar pacotes NuGet e metadados
+*.nuget
+project.assets.json
+project.nuget.cache
+*.g.props
+*.g.targets

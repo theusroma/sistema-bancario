@@ -1,0 +1,19 @@
+{
+    "extends": [
+      "react-app",
+      "plugin:tailwindcss/recommended"
+    ],
+    "rules": {
+      // Regra recomendada: desativa a regra que procura classes não declaradas em CSS/SCSS,
+      // que é o que causa os falsos positivos com as classes Tailwind.
+      // Esta regra é do 'eslint-plugin-css-modules', que é usado pelo CRA.
+      "css-modules/no-unused-class": "off"
+    },
+    "settings": {
+      "tailwindcss": {
+        "callees": ["classnames", "clsx", "ctl"],
+        // Se você não tem um arquivo tailwind.config.js na pasta `frontend/`, esta linha não precisa de ser configurada.
+        "config": "./tailwind.config.js" 
+      }
+    }
+  }
